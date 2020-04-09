@@ -1,0 +1,23 @@
+span{
+    float: left;
+    margin-right: 25px;
+    padding: 5px;
+    border:1px solid #ccc;
+}
+.active{
+    background-color:red;
+    color:#fff;
+    font-weight: bold;
+}
+
+span:hover{
+    cursor: pointer;
+}
+
+.movies{
+    padding: 20px;
+    margin-bottom: 5px
+}
+.title{
+    margin-bottom: 10px;
+}

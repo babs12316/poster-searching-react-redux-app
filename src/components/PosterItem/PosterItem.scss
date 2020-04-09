@@ -1,0 +1,45 @@
+.posterContainer{
+      display: grid;
+      grid-template-columns: auto auto;
+     padding: 30px;
+.posters {
+  text-decoration: none;
+  padding: 10px;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+  .title{
+        font-weight: bold;
+  }
+  .author{
+        font-style: italic;
+        margin-bottom: 10px;
+  }
+  .keyword{
+        margin-bottom: 10px;
+      
+  }
+  .eventName{
+        margin-bottom: 20px;
+     
+  }
+  .headline{
+        font-style: italic;
+       text-decoration: underline;
+  }
+  .eventPreview {
+    img {
+          margin-top: 10px;
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+}
+
+@media(max-width:767px){
+      .posterContainer{
+            grid-template-columns: auto;
+
+      }
+
+}
