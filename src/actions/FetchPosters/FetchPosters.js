@@ -12,6 +12,11 @@ export function fetchPostersRequest() {
 }
 
 export function fetchPostersSuccess(body, searchTerm) {
+  //console.log("body is"+JSON.stringify(body));
+  //console.length("body length is"+body.length)
+ /* if(body.length<0){
+    console.log("data is empty")
+  }*/
   return {
     type: FETCH_POSTERS_SUCCESS,
     payload: body,
@@ -20,6 +25,7 @@ export function fetchPostersSuccess(body, searchTerm) {
 }
 
 export function fetchPostersFailure(ex) {
+ 
   return {
     type: FETCH_POSTERS_FAILURE,
     ex,
@@ -27,7 +33,7 @@ export function fetchPostersFailure(ex) {
 }
 
 export default function fetchPosters(searchTerm) {
-  return (dispatch) => {
+    return (dispatch) => {
     dispatch(fetchPostersRequest());
     return axios
       .get(
@@ -38,4 +44,5 @@ export default function fetchPosters(searchTerm) {
       .then((data) => dispatch(fetchPostersSuccess(data, searchTerm)))
       .catch((ex) => dispatch(fetchPostersFailure(ex)));
   };
+
 }

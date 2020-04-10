@@ -34,18 +34,31 @@ export default function posterReducer(state = initialState, action) {
       }else{
       return {
         ...initialState,
-        loadingPosters:false
+        loadingPosters:false,
+        error:action.payload
       };
     }
     }
     
     case FETCH_POSTERS_SUCCESS: {
+      console.log("body is"+action.payload.length)
+      if(action.payload.length<1){
+        let errorMsg = "No record found! please enter another term."
+        return {
+          ...initialState,
+          postersInfo: action.payload,
+          searchTerm: action.searchTerm,
+          loadingPosters:false,
+          error:errorMsg
+        };
+      }else{
       return {
         ...initialState,
         postersInfo: action.payload,
         searchTerm: action.searchTerm,
         loadingPosters:false
       };
+    } 
     }
     case FETCH_POSTER_DETAIL_SUCCESS: {
       return { ...initialState, posterDetail: action.payload };

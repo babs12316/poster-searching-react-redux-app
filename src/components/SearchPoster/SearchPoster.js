@@ -8,13 +8,21 @@ import ReactLoading from 'react-loading';
 const SearchPoster = (props) => {
   const history = useHistory();
   const [searchTerm, changeSearchTerm] = useState(props.searchTerm);
+  const [error, changeErrorMsg] = useState('');
+
 
   let handleChange = (e) => {
     changeSearchTerm(e.target.value);
   };
 
   let handleClick = () => {
-    props.fetchPosters(searchTerm);
+    if(searchTerm){
+      props.fetchPosters(searchTerm);
+      changeErrorMsg('')
+    }
+    else{
+      changeErrorMsg('Please enter search term!')
+    }
     history.goBack();
   };
   return (
@@ -28,6 +36,7 @@ const SearchPoster = (props) => {
       <button onClick={handleClick}>Search</button>
       { props.loadingPosters && <div className="loadingPosters"><ReactLoading type={'spokes'} color={'#008000'} height={'5%'} width={'5%'} /></div>}
       <div className="error"> {props.error}</div>
+      <div className="error"> {error}</div>
     </div>
   );
 };

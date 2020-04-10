@@ -1,75 +1,69 @@
-.posterContainer{
-      display: grid;
-      grid-template-columns: auto auto;
-     padding: 30px;
-.posters {
-  text-decoration: none;
-  padding: 10px;
-  color: #000;
-  border: 1px solid #ccc;
-  margin-bottom: 50px;
+.posterContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 30px;
+  .posters {
+    text-decoration: none;
+    padding: 10px;
+    color: #000;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
     margin-right: 50px;
     margin-left: 50px;
-  .title{
-        font-weight: bold;
+    .title {
+      font-weight: bold;
+    }
+    .author {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .keyword {
+      margin-bottom: 10px;
+    }
+    .eventName {
+      margin-bottom: 20px;
+    }
+    .headline {
+      font-style: italic;
+      text-decoration: underline;
+      margin-top: 10px;
+    }
+    .eventPreview {
+      img {
+        margin-top: 10px;
+        width: 200px;
+        height: 200px;
+      }
+    }
   }
-  .author{
-        font-style: italic;
-        margin-bottom: 10px;
+  .hide {
+    display: none;
   }
-  .keyword{
-        margin-bottom: 10px;
-      
-  }
-  .eventName{
-        margin-bottom: 20px;
-     
-  }
-  .headline{
-        font-style: italic;
-       text-decoration: underline;
-       margin-top: 10px;
-  }
-  .eventPreview {
-    img {
-          margin-top: 10px;
-      width: 200px;
-      height: 200px;
+  .show {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    button {
+      padding: 10px;
+      width: 115px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
-.hide{
-      display: none;
-}
-.show{ 
-      position:fixed;
-    bottom: 0;
-    width: 100%;
-    text-align:center;
- button{
-      padding: 10px;
-      width:115px;
-      &:hover{
-            cursor: pointer;
-      }
-  }   
-}
 
-}
+@media (max-width: 767px) {
+  .posterContainer {
+    grid-template-columns: auto;
 
-
-@media(max-width:767px){
-      .posterContainer{
-            grid-template-columns: auto;
-
-      
-      .posters{
-            margin-right: 0px;
-            margin-left: 0px;
-      }
-      .show{
-            width:100%;
-      }
-}
-
+    .posters {
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+    .show {
+      width: 100%;
+    }
+  }
 }
