@@ -16,11 +16,12 @@ const SearchPoster = (props) => {
   };
 
   let handleClick = () => {
-    if(searchTerm){
+   // call Api only if search term entered is new one
+    if(searchTerm && searchTerm!==props.searchTerm){
       props.fetchPosters(searchTerm);
       changeErrorMsg('')
     }
-    else{
+    else if(!searchTerm){
       changeErrorMsg('Please enter search term!')
     }
     history.goBack();
