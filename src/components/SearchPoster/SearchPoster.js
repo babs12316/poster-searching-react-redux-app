@@ -1,52 +1,47 @@
-import React,{useState,useEffect} from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import '../SearchPoster/SearchPoster.scss';
-import fetchPosters from '../../actions/FetchPosters/FetchPosters';
-//import fetchSearchTerm from '../../actions/FetchSearchTerm/FetchSearchTerm';
-
-
+import "../SearchPoster/SearchPoster.scss";
+import fetchPosters from "../../actions/FetchPosters/FetchPosters";
+import { useHistory } from "react-router-dom";
 
 const SearchPoster = (props) => {
+  const history = useHistory();
+  const [searchTerm, changeSearchTerm] = useState(props.searchTerm);
 
-    useEffect(() => {
-        console.log("i am in searchposter"+props.searchTerm);
-        
-      }, );
+  let handleChange = (e) => {
+    changeSearchTerm(e.target.value);
+  };
 
-    const [searchTerm,changeSearchTerm]=useState(props.searchTerm);
+  let handleClick = () => {
+    props.fetchPosters(searchTerm);
+    history.goBack();
+  };
+  return (
+    <div className="searchBoxContainer">
+      <input
+        type="text"
+        onChange={handleChange}
+        defaultValue={props.searchTerm}
+        placeholder="Enter search term"
+      ></input>
+      <button onClick={handleClick}>Search</button>
+    </div>
+  );
+};
 
- 
-let handleChange=(e)=>{
-    changeSearchTerm(e.target.value)
-}
-
- let handleClick=()=>{
-      props.fetchPosters(searchTerm)
-  }
-    return ( 
-        <div className="searchBoxContainer"> 
-        <input type="text" onChange={ handleChange} defaultValue={props.searchTerm} ></input>
-        <button onClick={handleClick}>Search</button>
-
-        {props.searchTerm}
-       </div>
-     );
-}
- 
 const mapStateToProps = (state) => {
-    return {
-        postersInfo: state.posters.postersInfo,
-        searchTerm:state.posters.searchTerm
-    };
+  return {
+    postersInfo: state.posters.postersInfo,
+    searchTerm: state.posters.searchTerm,
   };
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchPosters: (searchTerm) => {
-        dispatch( fetchPosters(searchTerm));
-      },
-    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPosters: (searchTerm) => {
+      dispatch(fetchPosters(searchTerm));
+    },
   };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(SearchPoster);
-  
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPoster);

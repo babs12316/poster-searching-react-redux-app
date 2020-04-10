@@ -1,37 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-import fetchPosters from '../../actions/FetchPosters/FetchPosters';
-import PosterItem from '../PosterItem/PosterItem';
-import SearchPoster from '../SearchPoster/SearchPoster';
+import PosterItem from "../PosterItem/PosterItem";
+import SearchPoster from "../SearchPoster/SearchPoster";
+import '../PosterList/PosterList.scss';
 
 const PosterList = (props) => {
-  
-    return ( <div>
-        <SearchPoster></SearchPoster> 
-        {props.searchTerm}
-        <PosterItem
-        fetchPosters={props.fetchPosters}
+  return (
+    <div className="posterListContainer">
+      <h2>Welcome to Poster search!</h2>
+      <SearchPoster></SearchPoster>
+      <PosterItem 
         postersInfo={props.postersInfo}
         searchTerm={props.searchTerm}
-        ></PosterItem>
+      ></PosterItem>
+    </div>
+  );
+};
 
-    </div> );
-}
- 
 const mapStateToProps = (state) => {
-    return {
-      postersInfo: state.posters.postersInfo,
-      searchTerm: state.posters.searchTerm
-    };
+  return {
+    postersInfo: state.posters.postersInfo,
+    searchTerm: state.posters.searchTerm,
   };
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchPosters: () => {
-        dispatch(fetchPosters(''));
-      },
-    };
-  };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(PosterList);
-  
+};
+
+export default connect(mapStateToProps)(PosterList);

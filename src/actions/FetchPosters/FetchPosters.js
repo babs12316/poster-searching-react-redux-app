@@ -1,8 +1,9 @@
-import axios from 'axios';
-import { FETCH_POSTERS_REQUEST, FETCH_POSTERS_SUCCESS, FETCH_POSTERS_FAILURE } from '../../constants/actionTypes';
-
-
-
+import axios from "axios";
+import {
+  FETCH_POSTERS_REQUEST,
+  FETCH_POSTERS_SUCCESS,
+  FETCH_POSTERS_FAILURE,
+} from "../../constants/actionTypes";
 
 export function fetchPostersRequest() {
   return {
@@ -10,15 +11,12 @@ export function fetchPostersRequest() {
   };
 }
 
-export function fetchPostersSuccess(body,searchTerm) {
-
-  
-//  console.log("POSTERS sss data is"+JSON.stringify(body))
+export function fetchPostersSuccess(body, searchTerm) {
   return {
     type: FETCH_POSTERS_SUCCESS,
-    payload:body,
-    searchTerm:searchTerm
-  }
+    payload: body,
+    searchTerm: searchTerm,
+  };
 }
 
 export function fetchPostersFailure(ex) {
@@ -29,13 +27,15 @@ export function fetchPostersFailure(ex) {
 }
 
 export default function fetchPosters(searchTerm) {
-  console.log("i am in fetechposters"+searchTerm)
- 
   return (dispatch) => {
     dispatch(fetchPostersRequest());
-    return axios.get('https://cors-anywhere.herokuapp.com/https://staging-ng.morressier.com/events_manager/v3/posters/search?query='+searchTerm)
-      .then(response => response.data.posters)
-      .then(data => dispatch(fetchPostersSuccess(data,searchTerm)))
-      .catch(ex => dispatch(fetchPostersFailure(ex)));
+    return axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://staging-ng.morressier.com/events_manager/v3/posters/search?query=" +
+          searchTerm
+      )
+      .then((response) => response.data.posters)
+      .then((data) => dispatch(fetchPostersSuccess(data, searchTerm)))
+      .catch((ex) => dispatch(fetchPostersFailure(ex)));
   };
 }

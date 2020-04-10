@@ -6,7 +6,9 @@
   text-decoration: none;
   padding: 10px;
   color: #000;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+    margin-right: 50px;
   .title{
         font-weight: bold;
   }
@@ -25,6 +27,7 @@
   .headline{
         font-style: italic;
        text-decoration: underline;
+       margin-top: 10px;
   }
   .eventPreview {
     img {
@@ -34,12 +37,34 @@
     }
   }
 }
+.hide{
+      display: none;
 }
+.show{
+      position: fixed;
+    bottom: 0;
+    width: 100%;
+   text-align:center;
+    margin-bottom: 10px;
+button{
+      padding: 10px;
+      width:115px;
+      &:hover{
+            cursor: pointer;
+      }
+  }   
+}
+}
+
 
 @media(max-width:767px){
       .posterContainer{
             grid-template-columns: auto;
 
+      
+      .posters{
+            margin-right: 0px;
       }
+}
 
 }
