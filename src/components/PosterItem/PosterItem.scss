@@ -9,6 +9,7 @@
   border: 1px solid #ccc;
   margin-bottom: 50px;
     margin-right: 50px;
+    margin-left: 50px;
   .title{
         font-weight: bold;
   }
@@ -40,13 +41,12 @@
 .hide{
       display: none;
 }
-.show{
-      position: fixed;
+.show{ 
+      position:fixed;
     bottom: 0;
     width: 100%;
-   text-align:center;
-    margin-bottom: 10px;
-button{
+    text-align:center;
+ button{
       padding: 10px;
       width:115px;
       &:hover{
@@ -54,6 +54,7 @@ button{
       }
   }   
 }
+
 }
 
 
@@ -64,6 +65,10 @@ button{
       
       .posters{
             margin-right: 0px;
+            margin-left: 0px;
+      }
+      .show{
+            width:100%;
       }
 }
 

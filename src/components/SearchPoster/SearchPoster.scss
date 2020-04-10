@@ -15,4 +15,17 @@
         cursor: pointer;
     }
    }
+   .loadingPosters{
+     text-align: center;
+     margin: auto;
+     widows: 100%;
+     div{
+         margin: auto;
+     }
+   }
+   .error{
+    text-align: center;
+    margin-top: 10px;
+    color:#FF0000;
+}
 }

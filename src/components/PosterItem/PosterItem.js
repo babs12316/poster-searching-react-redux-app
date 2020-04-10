@@ -39,6 +39,7 @@ const PosterItem = (props) => {
 
   return (
     <div className="posterContainer">
+      
       {Object.keys(props.postersInfo)
         .slice(currentPage, 11)
         .map((item, itemNumber) => (
