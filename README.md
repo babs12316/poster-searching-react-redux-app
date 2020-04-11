@@ -23,7 +23,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### E2E test using Cypress
 Launch cypress using npx cypress open
-Select Posters_spec.js and cypress will execute all tests in it
+Select Posters_spec.js and cypress will execute all tests
 
 
 ### `npm run build`
