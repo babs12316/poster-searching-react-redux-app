@@ -41,7 +41,6 @@ export default function posterReducer(state = initialState, action) {
     }
     
     case FETCH_POSTERS_SUCCESS: {
-      console.log("body is"+action.payload.length)
       if(action.payload.length<1){
         let errorMsg = "No record found! please enter another term."
         return {

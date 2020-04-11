@@ -12,11 +12,7 @@ export function fetchPostersRequest() {
 }
 
 export function fetchPostersSuccess(body, searchTerm) {
-  //console.log("body is"+JSON.stringify(body));
-  //console.length("body length is"+body.length)
- /* if(body.length<0){
-    console.log("data is empty")
-  }*/
+  console.log("pyaload is"+JSON.stringify(body))
   return {
     type: FETCH_POSTERS_SUCCESS,
     payload: body,
@@ -28,7 +24,7 @@ export function fetchPostersFailure(ex) {
  
   return {
     type: FETCH_POSTERS_FAILURE,
-    ex,
+    ex:ex.message,
   };
 }
 

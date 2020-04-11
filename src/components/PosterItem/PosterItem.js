@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./PosterItem.scss";
 import { Link } from "react-router-dom";
-const PosterItem = (props) => {
+ const PosterItem = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [nextPageDisabled, setNextPageDisabled] = useState(false);
   const [previousPageDisabled, setPreviousPageDisabled] = useState(true);

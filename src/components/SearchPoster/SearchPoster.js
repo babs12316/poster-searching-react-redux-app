@@ -5,7 +5,7 @@ import fetchPosters from "../../actions/FetchPosters/FetchPosters";
 import { useHistory } from "react-router-dom";
 import ReactLoading from 'react-loading';
 
-const SearchPoster = (props) => {
+export const SearchPoster = (props) => {
   const history = useHistory();
   const [searchTerm, changeSearchTerm] = useState(props.searchTerm);
   const [error, changeErrorMsg] = useState('');
@@ -24,7 +24,7 @@ const SearchPoster = (props) => {
     else if(!searchTerm){
       changeErrorMsg('Please enter search term!')
     }
-    history.goBack();
+    history.push("/");
   };
   return (
     <div className="searchBoxContainer">
